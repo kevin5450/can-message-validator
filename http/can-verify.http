@@ -1,0 +1,39 @@
+### 정상 메시지
+POST http://localhost:8080/api/can/verify
+Content-Type: application/json
+
+{
+  "rawFrame": "123 8 11 22 33 44 55 66 77 88"
+}
+
+### DLC와 실제 데이터 바이트 수 불일치
+POST http://localhost:8080/api/can/verify
+Content-Type: application/json
+
+{
+  "rawFrame": "123 8 11 22 33"
+}
+
+### 표준 CAN ID 범위 초과
+POST http://localhost:8080/api/can/verify
+Content-Type: application/json
+
+{
+  "rawFrame": "800 2 AA BB"
+}
+
+### DLC 범위 초과
+POST http://localhost:8080/api/can/verify
+Content-Type: application/json
+
+{
+  "rawFrame": "123 9 11 22 33 44 55 66 77 88 99"
+}
+
+### 16진수 형식 오류
+POST http://localhost:8080/api/can/verify
+Content-Type: application/json
+
+{
+  "rawFrame": "12G 2 AA BB"
+}
