@@ -235,20 +235,31 @@ src/main/java/com/example/canvalidator
 
 ---
 
-## 11. Limitations
+## 11. Scope
 
-- 실차 CAN 로그가 아닌 샘플 CAN raw frame을 사용했습니다.
-- CANoe, CANalyzer 등 전문 계측 도구는 사용하지 않았습니다.
-- DBC 파일 기반 Signal 해석은 포함하지 않았습니다.
-- Alive Counter, Checksum, Timeout 검증은 포함하지 않았습니다.
-- 현재는 학습용 미니 프로젝트이며, 차량 제어 시스템을 직접 검증한 프로젝트는 아닙니다.
+이 프로젝트는 샘플 CAN raw frame을 사용한 학습용 검증 API입니다.
+
+포함한 내용:
+
+CAN ID, DLC, Data Field 파싱
+- 기본 형식 검증
+- 오류 원인 분류
+- 단일 메시지 검증
+- Batch 메시지 검증
+
+포함하지 않은 내용:
+
+- 실차 CAN 로그 분석
+- CANoe, CANalyzer 연동
+- DBC 기반 Signal 해석
+- Alive Counter, Checksum, Timeout 검증
 
 ---
 
-## 12. Future Improvements
+## 12. Next Step
 
-- 샘플 CAN 로그를 MongoDB에 적재하고 검증 결과 저장
-- 검증 결과 CSV 리포트 자동 생성
-- DBC 기반 Signal 파싱
-- Alive Counter, Checksum, Timeout 검증 추가
+- 샘플 CAN 로그 대량 생성
+- MongoDB 기반 검증 결과 저장
+- CSV 리포트 자동 생성
+- DBC 기반 Signal 파싱 구조 추가
 - 대량 CAN 로그 Batch 분석 자동화
